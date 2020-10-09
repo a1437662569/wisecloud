@@ -1,0 +1,11 @@
+# nacos配置中心配置建议在bootstrap.properties中配置
+spring.cloud.nacos.config.server-addr=192.168.1.135:8848
+#spring.cloud.nacos.config.file-extension=properties
+# 配置中心的命名空间：dev 的命名空间（环境）
+spring.cloud.nacos.config.namespace=49cdd1cb-c2c9-4e85-b2a2-3c4506c6c3c5
+
+spring.cloud.nacos.discovery.server-addr=192.168.1.135:8848
+spring.cloud.nacos.discovery.namespace=49cdd1cb-c2c9-4e85-b2a2-3c4506c6c3c5
+nacos.gateway.route.config.data-id=cloudgateway-9528
+nacos.gateway.route.config.group=DEFAULT_GROUP
+dubbo.cloud.subscribed-services=*

@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: cloudgateway-9527
+  profiles:
+    # 环境配置
+    #active: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.135:8848
+        #namespace: 49cdd1cb-c2c9-4e85-b2a2-3c4506c6c3c5
+      config:
+        ext-config:
+          dataId: cloudgateway-9527
+        group: DEFAULT_GROUP
+        data-id: cloudgateway-9527
+        server-addr: 192.168.1.135:8848
+        file-extension: yaml
+        #namespace: 49cdd1cb-c2c9-4e85-b2a2-3c4506c6c3c5
+      filter:
+        remove-hop-by-hop:
+          headers:
+            - connection
+            - keep-alive
+            - te
+            - trailer
+            - proxy-authorization
+            - proxy-authenticate
+            - x-application-context
+            - upgrade
+        ## 如果动态路由配置启动，则注释掉routes
+        routes:
+          - id: demo
+            uri: lb://paycore
+            predicates:
+              - Path=/paycore/**
+              - Test=20200809
+            filters:
+              - StripPrefix=1
+              - Authentication
+              - CModifyRequest
+              - CModifyResponse
+              - name: Hystrix
+                args:
+                  name: fallbackcmd
+                  fallbackUri: forward:/hello
