@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.xxl</groupId>
     <artifactId>wisecloud</artifactId>
-    <version>${wisecloud.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>wisecloud</name>
 
     <packaging>pom</packaging>
@@ -38,10 +38,12 @@
     </properties>
 
     <modules>
-        <module>paycore-provider</module>
-        <module>paycore-consumer</module>
+        <module>template-provider</module>
+        <module>template-consumer</module>
         <module>gateway-9527</module>
-        <module>wisecloud-common</module>
+        <!--<module>wisecloud-common</module>-->
+        <module>wisecloud-common/common-enum</module>
+        <module>wisecloud-common/common-api</module>
     </modules>
 
 
@@ -59,6 +61,8 @@
                 <version>${wisecloud.version}</version>
             </dependency>
 
+
+
             <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
             <dependency>
                 <groupId>joda-time</groupId>
@@ -72,10 +76,7 @@
                 <version>${lombok.version}</version>
                 <optional>true</optional>
             </dependency>
-            <dependency>
-                <groupId>com.xxl</groupId>
-                <artifactId>wisecloud-common</artifactId>
-            </dependency>
+
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-pool2</artifactId>

@@ -19,10 +19,10 @@ import java.util.stream.Collectors;
 @SpringBootApplication
 @EnableDubbo
 @MapperScan("com.xxl.mapper")
-public class PaycoreProviderApplication {
+public class TemplateConsumerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PaycoreProviderApplication.class, args);
+        SpringApplication.run(TemplateConsumerApplication.class, args);
     }
 
     /**

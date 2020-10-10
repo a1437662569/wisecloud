@@ -2,9 +2,14 @@
 server:
   port: 8090
 
+#变量
+group: DEFAULT_GROUP
+server-addr: 192.168.1.135:8848
+namespace: de5a140e-1f73-468c-a319-9ec789c1793b
+
 spring:
   application:
-    name: paycore-consumer
+    name: template-consumer
   profiles:
     # 环境配置dev
     active: public
@@ -13,20 +18,21 @@ spring:
       discovery:
         username: nacos
         password: nacos
-        service: paycore-consumer
-        server-addr: 192.168.1.135:8848
-        namespace: de5a140e-1f73-468c-a319-9ec789c1793b
+        service: ${spring.application.name}
+        server-addr: ${server-addr}
+        namespace: ${namespace}
         metadata:
           company: 小溪流
           version: 0.0.1-SNAPSHOT
           date: 2020-9-24 14:12:47
+        weight: 2.1
       config:
-        namespace: de5a140e-1f73-468c-a319-9ec789c1793b
+        namespace: ${namespace}
         enabled: true
-        server-addr: 192.168.1.135:8848
-        group: DEFAULT_GROUP
+        server-addr: ${server-addr}
+        group: ${group}
         file-extension: yaml
-        prefix: paycore
+        prefix: ${spring.application.name}
 
 
 feign.client:
@@ -56,22 +62,13 @@ dubbo:
       name: dubbo
       port: -1
   registry:
-    address: spring-cloud://192.168.1.135:8848
-    namespace: de5a140e-1f73-468c-a319-9ec789c1793b
+    address: spring-cloud://${server-addr}
+    namespace: ${namespace}
+  cloud:
+    subscribed-services: template-provider
+
 feign:
   hystrix:
     enabled: true
 
-#MP配置文件详解:https://baomidou.com/config/
-mybatis-plus:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.xxl.model
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    map-underscore-to-camel-case: true #实体接收自动转驼峰映射
-    call-setters-on-nulls: true
-  global-config:
-    banner: false
-    db-config:
-      id-type: input
 

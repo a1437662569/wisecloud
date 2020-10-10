@@ -3,6 +3,10 @@ package com.xxl.common.enums;
 import lombok.Getter;
 
 @Getter
+/**
+ * 只允许新增
+ * 请勿修改删除
+ */
 public enum APICodeMsgEnum {
 
     /**

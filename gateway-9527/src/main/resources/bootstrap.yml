@@ -4,12 +4,12 @@ nacos:
   gateway:
     route:
       config:
-        data-id: cloudgateway-9527-public.yaml
+        data-id: gateway-9527-public.yaml
         group: DEFAULT_GROUP
         namespace: de5a140e-1f73-468c-a319-9ec789c1793b
 spring:
   application:
-    name: cloudgateway-9527
+    name: gateway-9527
   profiles:
     active: public
   cloud:
@@ -22,9 +22,9 @@ spring:
           enabled: true
       config:
         ext-config:
-          dataId: cloudgateway-9527
+          dataId: gateway-9527
         group: DEFAULT_GROUP
-        data-id: cloudgateway-9527
+        data-id: gateway-9527
         server-addr: 192.168.1.135:8848
         file-extension: yaml
         namespace: de5a140e-1f73-468c-a319-9ec789c1793b
@@ -53,22 +53,22 @@ spring:
               - proxy-authenticate
               - x-application-context
               - upgrade
-        ## 如果动态路由配置启动，则注释掉routes
-        routes:
-          - id: demo
-            uri: lb://paycore
-            predicates:
-              - Path=/paycore/**
-              - Test=20200809
-            filters:
-              - StripPrefix=1
-              - Authentication
-              - CModifyRequest
-              - CModifyResponse
-              - name: Hystrix
-                args:
-                  name: fallbackcmd
-                  fallbackUri: forward:/hello
+#        ## 如果动态路由配置启动，则注释掉routes
+#        routes:
+#          - id: demo
+#            uri: lb://paycore
+#            predicates:
+#              - Path=/paycore/**
+#              - Test=20200809
+#            filters:
+#              - StripPrefix=1
+#              - Authentication
+#              - CModifyRequest
+#              - CModifyResponse
+#              - name: Hystrix
+#                args:
+#                  name: fallbackcmd
+#                  fallbackUri: forward:/hello
 ###断路器
 #hystrix:
 #  command:

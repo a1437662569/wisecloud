@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.xxl</groupId>
         <artifactId>wisecloud</artifactId>
-        <version>${wisecloud.version}</version>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>gateway-9527</artifactId>
@@ -94,7 +94,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.springcloud.CloudGateway9527</mainClass>
+                    <mainClass>com.springcloud.Gateway9527</mainClass>
                 </configuration>
                 <executions>
                     <execution>
