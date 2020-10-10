@@ -1,4 +1,4 @@
-# SpringCloudGateway-Demo
+#1、 SpringCloudGateway-Demo
 
 ## SpringCloud Gateway简介
 SpringCloud Gateway该项目提供了一个用于在Spring MVC之上构建API网关的库，建立在Spring Framework 5，Project Reactor和Spring Boot 2.0之上。Spring Cloud Gateway旨在提供一种简单而有效的方法来路由到API，并为它们提供跨领域的关注，例如：安全性，监视/指标和弹性。
@@ -36,3 +36,49 @@ SpringCloud Gateway该项目提供了一个用于在Spring MVC之上构建API网
 - route 动态路由的实现
 - service IP拦截以及鉴权的具体实现
 - predicate 预言
+
+#2、nacos配置
+
+Data ID:
+    
+    gateway-9527-public.yaml
+
+Group:
+
+    DEFAULT_GROUP
+
+配置内容:
+
+    [{
+        "id": "template-consumer",
+        "order": 0,
+        "predicates": [{
+            "args": {
+                "pattern": "/consumer/**"
+            },
+            "name": "Path"
+        }],  
+        "filters":[{
+            "name": "StripPrefix",
+            "args": {
+                "_genkey_0": "1"
+            }
+        }],
+        "uri": "lb://template-consumer"
+    },{
+        "id": "template-provider",
+        "order": 2,
+        "predicates": [{
+            "args": {
+                "pattern": "/provider/**"
+            },
+            "name": "Path"
+        }],
+        "filters":[{
+            "name": "StripPrefix",
+            "args": {
+                "_genkey_0": "1"
+            }
+        }],
+        "uri": "lb://template-provider"
+    }]
