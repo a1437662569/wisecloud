@@ -16,7 +16,7 @@
         <!--        引入其他服务-->
         <dependency>
             <groupId>com.xxl</groupId>
-            <artifactId>common-api-paycore</artifactId>
+            <artifactId>common-api</artifactId>
         </dependency>
 
         <dependency>

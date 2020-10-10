@@ -11,10 +11,12 @@
 
     <modules>
         <module>common-enum</module>
+        <module>common-api</module>
     </modules>
 
     <artifactId>wisecloud-common</artifactId>
     <description>启元：公共模块</description>
+    <version>0.0.1-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 

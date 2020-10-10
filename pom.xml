@@ -42,7 +42,6 @@
         <module>paycore-consumer</module>
         <module>gateway-9527</module>
         <module>wisecloud-common</module>
-        <module>common-api-paycore</module>
     </modules>
 
 
@@ -56,7 +55,7 @@
             </dependency>
             <dependency>
                 <groupId>com.xxl</groupId>
-                <artifactId>common-api-paycore</artifactId>
+                <artifactId>common-api</artifactId>
                 <version>${wisecloud.version}</version>
             </dependency>
 
