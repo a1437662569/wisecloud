@@ -3,8 +3,8 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common-api-paycore</artifactId>
-    <description>PayCore对外暴露HTTP/RPC服务</description>
+    <artifactId>common-api</artifactId>
+    <description>对外暴露HTTP/RPC服务</description>
 
     <parent>
         <groupId>com.xxl</groupId>
