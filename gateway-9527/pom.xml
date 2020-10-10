@@ -9,7 +9,7 @@
         <version>${wisecloud.version}</version>
     </parent>
 
-    <artifactId>cloudgateway-9527</artifactId>
+    <artifactId>gateway-9527</artifactId>
     <version>${wisecloud.version}</version>
     <description>网关Demo</description>
 
